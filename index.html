@@ -5,10 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
 
-    <link rel="stylesheet" href="css/app.css">
-
     
-    <script src="js/app.js" defer></script>
+    <style>
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
+
+/* Concept of Color Themes using CSS vars */
+:root {
+    --header-color: azure;
+    --nav-link-color: chocolate;
+    --nav-link-hover: black;
+}
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    /* text-align: center; */
+
+}
+h1 {
+    font-family: "Sixtyfour Convergence", sans-serif;
+    font-size: 2em;
+
+}
+
+header {
+    width: 100%;
+    background-color: var(--header-color);
+    height: 50px;
+    position: fixed;
+    z-index: 1;
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+nav ul li a {
+    font-weight: bold;
+    line-height: 2em;
+    text-decoration: none;
+    color: var(--nav-link-color);
+
+}
+nav ul li a:hover {
+    color: var(--nav-link-hover);
+}
+
+nav {
+    width: 100%;
+    /* position: relative;
+    margin: 0 auto; */
+    top:20px;
+    text-align: center;
+}
+
+#banner {
+    height: 100vh;
+    background: aqua url(../img/banner.jpg) no-repeat top center;
+    background-size: cover;
+    text-align: center;
+    padding: 30% 0 0;
+
+}
+
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+
+}
+figure {
+    background: rgb(240, 240, 240);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+figure img {
+    width: 100%;
+    cursor: pointer;
+}
+
+footer{
+    background-color: grey;
+    color: white;
+    min-height: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/*header, */
+/*#banner, */
+#about, 
+#projects,
+#contact  
+/*, footer */ 
+{
+    padding: 20px;
+    max-width: 1200px;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+
+/* Mobile menu */
+#menu{
+    position: absolute;
+    color: blue;
+    cursor: pointer;
+    top: 0px;
+    left: 20px;
+    font-size: 1.5em;
+}
+#panel{
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    top: 0px;
+    left: -300px;
+    background: #b5b5b5;
+    transition: all 0.5s ease-in;    
+    padding: 20px;
+    z-index: 10;
+}
+#panel.slide-in{
+    transform: translateX(300px);
+}
+
+#menu{
+    display: none;
+}
+#close{
+    width: 30px;
+    position: relative;
+    left: 255px;
+    top: -19px;
+}
+
+#panel nav ul li {
+    display: block;
+    font-weight: bold;
+    /* word-spacing: 20px; */
+}
+@media only screen and (max-width: 600px) {
+    #menu{
+        display: block;
+    }
+    header nav{
+        display: none;
+    }
+
+    h1 {
+        font-size: 1em;    
+    }    
+
+}
+
+
+.project-img{
+    width: 100%;
+    display: none;
+}
+.project-img:first-child{
+    display: block;
+    cursor: pointer;
+}
+#overlay {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    background: white;
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+    padding: 20px;
+    z-index: 100;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#overlay.show {
+    display: block;
+    /* opacity: 1; */
+}
+.project-img-detail{
+    width: 100%;
+}
+.close{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* #overlay::before {
+    content: "x";
+} */
+
+    </style>
+    
 </head>
 <body>
     
